@@ -665,6 +665,43 @@ body {
     top: 100px;
 }
 
+.contact-phone-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 12px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-phone-cta:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+.contact-phone-cta .phone-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.contact-or {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: var(--spacing-md) 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 .contact-description {
     font-size: 1.1rem;
     color: var(--text-secondary);
@@ -923,6 +960,13 @@ body {
 
     .contact-info {
         position: static;
+    }
+
+    .contact-phone-cta {
+        width: 100%;
+        justify-content: center;
+        font-size: 1.25rem;
+        padding: var(--spacing-md);
     }
 
     .contact-benefits {
