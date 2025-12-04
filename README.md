@@ -184,20 +184,6 @@ Covers:
 - User rights (access, correction, deletion)
 - Contact information
 
-## FAQ
-
-**Q: Can I see the keys/IDs in the code?**
-A: Yes, and that's safe! The Google Analytics and Formspree IDs are public keys meant to be visible. They only send data TO your accounts, not give access to them.
-
-**Q: How do I change the phone number?**
-A: Search for `(435) 767-7225` in `index.html` and replace all instances.
-
-**Q: How do I add more FAQ questions?**
-A: Copy an existing FAQ item in `index.html` and modify the question/answer text.
-
-**Q: How do I change pricing?**
-A: Search for `$39.99` and `$60` in `index.html` and update them.
-
 ## Maintenance
 
 ### Regular Tasks
