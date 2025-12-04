@@ -38,7 +38,9 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "DryAndWashRent",
-      "description": "Washer and dryer rental service with professional installation",
+      "description": "Washer and dryer rental service with professional installation in St. George, UT and Mesquite, NV",
+      "url": "https://dryandwashrent.com",
+      "telephone": "+1-435-767-7225",
       "priceRange": "$$",
       "areaServed": [
         {
@@ -52,11 +54,34 @@
           "addressRegion": "NV"
         }
       ],
-      "offers": {
-        "@type": "Offer",
-        "price": "60.00",
-        "priceCurrency": "USD",
-        "description": "Monthly rental for washer and dryer"
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Installation Service",
+          "price": "39.99",
+          "priceCurrency": "USD",
+          "description": "One-time professional installation"
+        },
+        {
+          "@type": "Offer",
+          "name": "Monthly Rental",
+          "price": "60.00",
+          "priceCurrency": "USD",
+          "description": "Monthly rental for washer and dryer",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "60.00",
+            "priceCurrency": "USD",
+            "unitText": "MONTH"
+          }
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-435-767-7225",
+        "contactType": "customer service",
+        "areaServed": ["US"],
+        "availableLanguage": "English"
       }
     }
     </script>
