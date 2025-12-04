@@ -15,15 +15,15 @@
     --primary-light: #2dd4bf;
     --secondary: #64748b;
     --secondary-dark: #475569;
-    --secondary-light: #94a3b8;
+    --secondary-light: #cbd5e1;
 
     --background: #ffffff;
     --background-alt: #f8fafc;
     --surface: #ffffff;
 
     --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
 
     --border: #e2e8f0;
     --error: #ef4444;
@@ -728,7 +728,7 @@ body {
     flex-shrink: 0;
 }
 
-.benefit-item h4 {
+.benefit-item h3 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
