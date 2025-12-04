@@ -665,6 +665,13 @@ body {
     top: 100px;
 }
 
+.contact-phone-options {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
 .contact-phone-cta {
     display: inline-flex;
     align-items: center;
@@ -673,12 +680,14 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.5rem;
-    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 1.25rem;
+    padding: var(--spacing-md) var(--spacing-lg);
     border-radius: 12px;
     transition: var(--transition);
     box-shadow: var(--shadow-lg);
-    margin-bottom: var(--spacing-md);
+    flex: 1;
+    min-width: 200px;
+    justify-content: center;
 }
 
 .contact-phone-cta:hover {
@@ -687,9 +696,21 @@ body {
     box-shadow: var(--shadow-xl);
 }
 
+.contact-phone-text {
+    background: var(--secondary-dark);
+}
+
+.contact-phone-text:hover {
+    background: var(--secondary);
+}
+
 .contact-phone-cta .phone-icon {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
+}
+
+.contact-phone-cta span {
+    white-space: nowrap;
 }
 
 .contact-or {
