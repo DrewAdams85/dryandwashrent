@@ -1,0 +1,44 @@
+# Security headers for Netlify/Vercel
+# These headers provide additional security for your website
+# Note: GitHub Pages doesn't support custom headers, so deploy to Netlify or Vercel to use these
+
+/*
+  # Prevent clickjacking attacks
+  X-Frame-Options: SAMEORIGIN
+
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+
+  # Enable XSS protection in browsers
+  X-XSS-Protection: 1; mode=block
+
+  # Control referrer information
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Permissions policy (formerly Feature Policy)
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=()
+
+  # Content Security Policy - allows necessary resources
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://formspree.io; frame-ancestors 'self'
+
+  # Strict Transport Security (HTTPS only) - uncomment after confirming HTTPS works
+  # Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Cache control for static assets
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Cache static assets for longer
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable

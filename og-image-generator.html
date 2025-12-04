@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Graph Image Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #canvas {
+            border: 2px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            background: #14b8a6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #0d9488;
+            transform: translateY(-2px);
+        }
+
+        .instructions {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .instructions h2 {
+            margin-top: 0;
+            color: #14b8a6;
+        }
+
+        .instructions ol {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Open Graph Image Generator</h1>
+
+    <canvas id="canvas" width="1200" height="630"></canvas>
+
+    <div class="controls">
+        <button id="generateBtn">Generate Image</button>
+        <button id="downloadBtn">Download as og-image.jpg</button>
+    </div>
+
+    <div class="instructions">
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Click "Generate Image" to create the Open Graph preview image</li>
+            <li>Click "Download as og-image.jpg" to save the image</li>
+            <li>Upload the og-image.jpg file to your website root directory (same folder as index.html)</li>
+            <li>The image will automatically be used for social media previews!</li>
+        </ol>
+        <p><strong>Note:</strong> This tool creates a 1200x630px image (optimal for Facebook, Twitter, LinkedIn) using your hero background image with the same teal overlay.</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const generateBtn = document.getElementById('generateBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        let imageGenerated = false;
+
+        generateBtn.addEventListener('click', generateImage);
+        downloadBtn.addEventListener('click', downloadImage);
+
+        function generateImage() {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+
+            img.onload = function() {
+                // Draw the background image
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                // Apply the teal overlay gradient (same as hero section)
+                const gradient1 = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                gradient1.addColorStop(0, 'rgba(20, 184, 166, 0.5)');
+                gradient1.addColorStop(1, 'rgba(13, 148, 136, 0.6)');
+                ctx.fillStyle = gradient1;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Add secondary overlay
+                const gradient2 = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                gradient2.addColorStop(0, 'rgba(20, 184, 166, 0.15)');
+                gradient2.addColorStop(1, 'rgba(13, 148, 136, 0.2)');
+                ctx.fillStyle = gradient2;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Add text overlay
+                ctx.fillStyle = 'white';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                // Main title
+                ctx.font = 'bold 80px Inter, Arial, sans-serif';
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+                ctx.shadowBlur = 10;
+                ctx.shadowOffsetY = 4;
+                ctx.fillText('DryAndWashRent', canvas.width / 2, canvas.height / 2 - 60);
+
+                // Subtitle
+                ctx.font = '40px Inter, Arial, sans-serif';
+                ctx.fillText('Affordable Washer & Dryer Rental', canvas.width / 2, canvas.height / 2 + 30);
+
+                // Price
+                ctx.font = 'bold 50px Inter, Arial, sans-serif';
+                ctx.fillText('$60/month • $39.99 Installation', canvas.width / 2, canvas.height / 2 + 100);
+
+                // Service area
+                ctx.font = '32px Inter, Arial, sans-serif';
+                ctx.fillText('St. George, UT & Mesquite, NV', canvas.width / 2, canvas.height / 2 + 160);
+
+                imageGenerated = true;
+                alert('Image generated! Now click "Download" to save it.');
+            };
+
+            img.onerror = function() {
+                alert('Error loading image. Make sure whirlpool.webp is in the same directory as this HTML file.');
+            };
+
+            // Load the hero background image
+            img.src = 'whirlpool.webp';
+        }
+
+        function downloadImage() {
+            if (!imageGenerated) {
+                alert('Please generate the image first by clicking "Generate Image"');
+                return;
+            }
+
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'og-image.jpg';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 'image/jpeg', 0.95);
+        }
+    </script>
+</body>
+</html>
