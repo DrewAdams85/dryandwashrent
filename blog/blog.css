@@ -208,6 +208,29 @@
     font-weight: 600;
 }
 
+.article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.05rem;
+}
+
+.article-content th,
+.article-content td {
+    text-align: left;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--border);
+}
+
+.article-content th {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.article-content td {
+    color: var(--text-secondary);
+}
+
 /* Article CTA */
 .article-cta {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
