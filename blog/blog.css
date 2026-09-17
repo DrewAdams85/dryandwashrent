@@ -339,4 +339,50 @@
     .article-cta {
         padding: var(--spacing-lg);
     }
+
+    .article-content table {
+        font-size: 0.95rem;
+    }
+
+    .article-content th,
+    .article-content td {
+        padding: var(--spacing-xs);
+    }
+}
+
+/* Related Articles */
+.related-articles {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border);
+}
+
+.related-articles h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.related-articles ul {
+    list-style: none;
+    padding: 0;
+}
+
+.related-articles li {
+    padding: var(--spacing-xs) 0;
+}
+
+.related-articles a {
+    color: var(--primary-dark);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.related-articles a:hover {
+    text-decoration: underline;
+}
+
+.article-content a {
+    color: var(--primary-dark);
 }
